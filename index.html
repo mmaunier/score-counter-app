@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Counter App</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <div class="terrain-container">
+        <div class="score-container">
+            <div class="score" id="score1">00</div>
+            <div class="score" id="score2">00</div>
+        </div>
+        
+        <!-- Ajout des icônes -->
+        <div class="icon-container">
+            <img src="images/redemarrerv2.svg" id="redemarrer-icon" class="icon" alt="Redémarrer">
+            <img src="images/annuler.svg" id="annuler-icon" class="icon" alt="Annuler">
+            <img src="images/parametres.svg" id="parametres-icon" class="icon" alt="Paramètres">
+        </div>
+        
+        <!-- Dialogue de confirmation -->
+        <div id="dialog-confirm" title="Réinitialiser les scores?" style="display:none">
+            <p>Voulez-vous vraiment réinitialiser les compteurs à zéro ?</p>
+        </div>
+    </div>
+</body>
+
+</html>
