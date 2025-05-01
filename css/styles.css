@@ -2,30 +2,30 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%;
     overflow: hidden;
+    background-color: #396f41; /* Même couleur que le fond du terrain */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .terrain-container {
-    width: 100vw;
-    height: 100vh;
+    position: relative;
+    width: 100vw; /* Toujours 100% de la largeur de la fenêtre */
+    height: 100vh; /* Par défaut, prend toute la hauteur (pour les écrans larges) */
     background-image: url('../images/Terrain-Bad2.svg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover; /* Changé de 'contain' à 'cover' pour remplir tout l'écran */
-    position: relative;
+    background-size: 100% 100%; /* Force l'image à s'étirer pour remplir tout l'espace */
+    background-color: #396f41;
 }
 
-/* Media query pour les écrans en mode portrait */
-@media (orientation: portrait) {
+/* Pour les écrans où la largeur est inférieure à 4/3 * hauteur (écrans plus hauts que larges) */
+@media (max-aspect-ratio: 16/9) {
     .terrain-container {
-        height: 75vw; /* Format 4/3 (75% de la largeur) */
-        max-height: 100vh; /* Ne jamais dépasser la hauteur de l'écran */
-        margin: auto; /* Centrer verticalement */
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        width: 100vw; /* Garde 100% de la largeur */
+        height: 56.25vw; /* 9/16 de la largeur (ratio 16/9) */
     }
 }
 
@@ -83,7 +83,7 @@ body, html {
     transform: translate(-50%, -50%);
 }
 
-/* Style pour les icônes */
+/* Décommenter et activer le conteneur d'icônes - IMPORTANT */
 .icon-container {
     position: absolute;
     width: 100%;
@@ -94,35 +94,45 @@ body, html {
 
 .icon {
     position: absolute;
-    width: 24px;
-    height: 24px;
+    /* Taille proportionnelle à la largeur de l'écran */
+    width: clamp(12px, calc(12px + 36 * ((100vw - 480px) / 2080)), 48px);
+    height: clamp(12px, calc(12px + 36 * ((100vw - 480px) / 2080)), 48px);
     cursor: pointer;
-    filter: invert(1); /* Rendre les icônes blanches */
-    /* Augmenter la zone cliquable sans changer la taille visible */
-    padding: 12px; /* Ajoute 12px autour de l'image = 50% de plus (24px + 50%) */
-    box-sizing: content-box; /* S'assure que le padding est ajouté à la taille */
-    margin: -12px; /* Compenser le padding pour garder l'icône centrée */
+    filter: invert(1);
+    /* Ajuster la zone cliquable proportionnellement à la taille */
+    padding: clamp(6px, calc(6px + 6 * ((100vw - 480px) / 2080)), 12px);
+    box-sizing: content-box;
+    margin: clamp(-6px, calc(-6px - 6 * ((100vw - 480px) / 2080)), -12px);
+    /* Position linéairement proportionnelle à la largeur */
+    bottom: calc(100vw * 15 / 2540);
+}
+
+/* Limite minimale et maximale pour la propriété bottom */
+@media (max-width: 10px) {
+    .icon {
+        bottom: 0;
+    }
+}
+
+@media (min-width: 2550px) {
+    .icon {
+        bottom: 15px;
+    }
+}
+
+#redemarrer-icon {
+    left: 10%;
+    transform: translateX(-50%); /* Centre l'icône horizontalement */
 }
 
 #annuler-icon {
-    bottom: 3%;
     left: 85%;
     transform: translateX(-50%);
 }
 
 #parametres-icon {
-    bottom: 3%;
     left: 90%;
     transform: translateX(-50%);
-}
-
-/* Ajouter ce style pour l'icône de redémarrage */
-#redemarrer-icon {
-    bottom: 3%;
-    left: 10%;
-    transform: translateX(-50%);
-    /* La zone cliquable est déjà augmentée de 50% grâce aux propriétés
-       padding, box-sizing et margin définies dans .icon */
 }
 
 @font-face {
