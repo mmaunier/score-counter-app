@@ -1,11 +1,11 @@
-# 🏆 Application de Comptage de Score au Badminton
+# 🏆 Scoreur pour le Badminton
 
 ## 📋 Description
-L'application de comptage de score est une application web simple qui affiche deux nombres sur une image de fond représentant un terrain de badminton. Les utilisateurs peuvent incrémenter ces nombres en cliquant sur la partie gauche ou droite de l'écran. L'application est conçue pour être responsive et fonctionne bien sur tablettes et smartphones.
+L'application **Scoreur-badminton** est une application web simple qui affiche deux nombres sur une image de fond représentant un terrain de badminton. Les utilisateurs peuvent incrémenter ces nombres en cliquant sur la partie gauche ou droite de l'écran. L'application est conçue pour être responsive et fonctionne bien sur tablettes et smartphones.
 
 ## 📁 Structure du Projet
 ```
-score-counter-app
+Scoreur-badminton
 ├── index.html        # Point d'entrée de l'application
 ├── css
 │   └── styles.css    # Styles pour l'application
@@ -43,8 +43,9 @@ Ce dossier contient :
 
 ## 🚀 Instructions d'Installation
 1. Clonez le dépôt sur votre machine locale.
-2. Ouvrez `index.html` dans votre navigateur web pour voir l'application.
-3. Assurez-vous d'avoir une connexion Internet pour charger jQuery et jQuery UI depuis leur CDN.
+   `git clone https://github.com/mmaunier/Scoreur-badminton/`
+3. Ouvrez `index.html` dans votre navigateur web pour voir l'application.
+4. Assurez-vous d'avoir une connexion Internet pour charger jQuery et jQuery UI depuis leur CDN.
 
 ## 📱 Utilisation
 - **Incrémentation des nombres** :
